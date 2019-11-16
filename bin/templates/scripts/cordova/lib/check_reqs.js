@@ -130,8 +130,8 @@ module.exports.check_cocoapods = function (toolChecker) {
                     const patch = parseInt(semver[2]);
 
                     // starting with 1.8.0 cocoapods now use cdn and we dont need to sync first
-                    if (major >= 1 && minor >= 8 && patch >= 0) {
-                        return Q.resolve();
+                    if ((major >= 1 && minor >= 8 && patch >= 0) || toolOptions.ignore) {
+                        return Q.resolve(toolOptions);
                     }
                 }
             }
