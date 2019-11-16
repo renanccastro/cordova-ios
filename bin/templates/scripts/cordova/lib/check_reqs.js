@@ -122,9 +122,9 @@ module.exports.check_cocoapods = function (toolChecker) {
         // a value of '0 repos' means it hasn't been synced
         .then(function (toolOptions) {
             let podVersion = shell.exec('pod --version', { silent: true });
-            if(podVersion) {
-                const semver = podVersion.split('.');
-                if(semver.length >= 3) {
+            if (podVersion) {
+                const semver = podVersion.toString().split('.');
+                if (semver.length >= 3) {
                     const major = parseInt(semver[0]);
                     const minor = parseInt(semver[1]);
                     const patch = parseInt(semver[2]);
