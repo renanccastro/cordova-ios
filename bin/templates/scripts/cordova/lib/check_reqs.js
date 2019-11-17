@@ -121,10 +121,15 @@ module.exports.check_cocoapods = function (toolChecker) {
         // check whether the cocoapods repo has been synced through `pod repo` command
         // a value of '0 repos' means it hasn't been synced
         .then(function (toolOptions) {
+            console.log("TESTE");
             let podVersion = shell.exec('pod --version', { silent: true });
             if (podVersion) {
+                console.log(podVersion);
+
                 const semver = podVersion.toString().split('.');
                 if (semver.length >= 3) {
+                    console.log(semver);
+
                     const major = parseInt(semver[0]);
                     const minor = parseInt(semver[1]);
                     const patch = parseInt(semver[2]);
